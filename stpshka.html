@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор профессии</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Выберите профессию</h2>
+        <button onclick="showSurvey('Повар')">Повар</button>
+        <button onclick="showSurvey('Официант')">Официант</button>
+        <button onclick="showSurvey('Учитель')">Учитель</button>
+        <button onclick="showSurvey('Полицейский')">Полицейский</button>
+        <button onclick="showSurvey('Врач')">Врач</button>
+    </div>
+    
+    <div class="container hidden" id="survey">
+        <h2 id="profession-title"></h2>
+        <p>Почему вы выбрали эту профессию?</p>
+        <textarea id="reason" rows="4" cols="40"></textarea>
+        <br>
+        <button onclick="submitSurvey()">Отправить</button>
+    </div>
+    
+    <script>
+        function showSurvey(profession) {
+            document.getElementById('profession-title').innerText = 'Опрос: ' + profession;
+            document.getElementById('survey').classList.remove('hidden');
+        }
+
+        function submitSurvey() {
+            alert('Спасибо за участие в опросе!');
+            document.getElementById('survey').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
